@@ -69,3 +69,7 @@ This repo is ogranized as follows:
 |_models
         |_ ...(saved models)
 ```
+# References
+* Cazenave, T. (2009, June). Nested monte-carlo search. In Twenty-First International Joint Conference on Artificial Intelligence.
+* Rosin, C. D. (2011, June). Nested rollout policy adaptation for Monte Carlo tree search. In Twenty-Second International Joint Conference on Artificial Intelligence.
+* Laterre, A., Fu, Y., Jabri, M. K., Cohen, A. S., Kas, D., Hajjar, K., ... & Beguir, K. (2018). Ranked reward: Enabling self-play reinforcement learning for combinatorial optimization. arXiv preprint arXiv:1807.01672.
