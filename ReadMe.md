@@ -2,16 +2,16 @@
 Monte Carlo methods have shown to be very effective in problems involving exploring a search space (e.g. optimization problems, zero sum games, etc.) This project was realized for the Monte Carlo Methods course in Paris Dauphine - PSL University. I chose to tackle a classical optimization problem (Bin packing) using various MC methods.
 
 # Bin Packing Problem
-Informally, the Bin Packing Problem (BPP) can be formulated as follows: one has n items, each item i has a weight $w_i$, the objective is to pack all items in bins of capacity c such that the number of bins is minimal. This problem is NP-Hard.
+Informally, the Bin Packing Problem (BPP) can be formulated as follows: one has n items, each item i has a weight w_i, the objective is to pack all items in bins of capacity c such that the number of bins is minimal. This problem is NP-Hard.
 
 # Implemented algorithms
 
 ## Heuristics
 The BPP has been thoroughly studied in literature. Very popular resolution approaches are heuristic methods. They present the advantage of being simple, efficient and very quick. We implemented the following algorithms:
 
-* First Fit: at each step, put the item i in the first bin where the free space ≥ $w_i$ 
-* Best Fit: at each step, put the item i in the bin where the free space is closest to $w_i$ 
-* Worst Fit: at each step, put the item i in the bin where the free space is furthest from $w_i$ 
+* First Fit: at each step, put the item i in the first bin where the free space ≥ w_i 
+* Best Fit: at each step, put the item i in the bin where the free space is closest to w_i 
+* Worst Fit: at each step, put the item i in the bin where the free space is furthest from w_i 
 We also implement variants of these algorithms where we first order items in decreasing order of their size (First/Best/Worst Fit Decreasing).
 
 
@@ -23,7 +23,7 @@ Although not always suitable for optimization problems, we implemented MCTS for 
 * Nested Rollout Policy Adaptation (NRPA): proposed by Rosin(2011), same principle as NMCS (uses nested levels) + policy learning. The algorithm adapts the weights of the moves according to the best sequence of moves found so far.
 
 ## Ranked Rewards (R2)
-By Laterre et al.(2018). The authors suggest an alpha-zero-like algorithm for optimization problems. In alpha zero, the main idea is that an agent should outperform itself through iterations (this is achieved with self plays). In optimization problems, the authors propose using ”ranked rewards”: instead of considering obtained rewards to construct the dataset, one can use reshaped rewards (1 if the agent did better than the $i^{th}$ percentile of previous data, -1 otherwise). 
+By Laterre et al.(2018). The authors suggest an alpha-zero-like algorithm for optimization problems. In alpha zero, the main idea is that an agent should outperform itself through iterations (this is achieved with self plays). In optimization problems, the authors propose using ”ranked rewards”: instead of considering obtained rewards to construct the dataset, one can use reshaped rewards (1 if the agent did better than the ith percentile of previous data, -1 otherwise). 
 
 We adapt the solution to the simple 1D Bin Backing Problem (the reward function is −nb bins)
 
@@ -46,7 +46,7 @@ n_items bins) and each row represents a weight unit.
 __Some comments:__
 * This representation results in loss of generality since it only encompasses problems of size <= n (problems with n items or less)
 * In our implementation, we sort the bins (in both planes) by free space, so that the representation is more robust (two equivalent solutions with different orders would have the same representation)
-* The number of outputs of the neural network is $n\_items^2$ (worst case, each item is assigned to its own bin) which is a lot, but we could not think about a better representation.
+* The number of outputs of the neural network is n_items^2 (worst case, each item is assigned to its own bin) which is a lot, but we could not think about a better representation.
 
 # Organization
 This repo is ogranized as follows:
